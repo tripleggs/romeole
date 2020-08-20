@@ -1,8 +1,8 @@
 数据筛选工具
 ===============
-当前版本 v-1.0.0
+当前版本 v1.0.0
 #### 作者
-###### 龚周 李少雄
+###### [Gong](https://github.com/tripleggs) & [Lee](https://github.com/frank-neo)
 
 ## 后端技术架构
 - 基础框架：Spring Boot 2.3.3.RELEASE

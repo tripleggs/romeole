@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.romeole</groupId>
     <artifactId>data</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>v1.0.0</version>
     <name>data_funnel</name>
     <description>data cleaning tool</description>
 
