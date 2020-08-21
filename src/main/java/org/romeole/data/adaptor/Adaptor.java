@@ -1,5 +1,8 @@
 package org.romeole.data.adaptor;
 
+import org.romeole.data.consts.DatasourceType;
+
+import java.sql.Connection;
 import java.sql.Driver;
 
 /**
@@ -11,8 +14,12 @@ import java.sql.Driver;
  */
 public interface Adaptor {
 
-    Driver register(String diverName);
+    void register(String diverName);
 
     Driver getDriver(String driverName);
+
+    Driver getDriver(DatasourceType type);
+
+    Driver getDriver();
 
 }
