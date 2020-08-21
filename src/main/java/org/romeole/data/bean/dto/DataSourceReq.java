@@ -1,6 +1,7 @@
 package org.romeole.data.bean.dto;
 
 import lombok.Data;
+import org.romeole.data.annotation.NotNull;
 import org.romeole.data.consts.DatasourceType;
 
 /**
@@ -11,10 +12,12 @@ import org.romeole.data.consts.DatasourceType;
  * @date 2020/8/2115:18
  */
 @Data
-public class DataSourceReq {
+public class DataSourceReq extends BaseReq {
 
+    @NotNull
     private String host;
 
+    @NotNull
     private String port;
 
     private String username;
@@ -23,6 +26,9 @@ public class DataSourceReq {
 
     private String schema;
 
+    private String suffix;
+
+    @NotNull
     private DatasourceType type;
 
 }
