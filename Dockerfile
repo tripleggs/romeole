@@ -1,15 +1,14 @@
 FROM hub.c.163.com/library/java:8-alpine
-
-RUN  echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories \
-    && echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/community' >>/etc/apk/repositories \
-&& apk update && apk add tzdata \
-&& ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-&& echo "Asia/Shanghai" > /etc/timezone
-
-
-ADD target/*.jar app.jar
-
-EXPOSE 9527
+ADD / /app/
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-ENTRYPOINT ["java","-jar","/app.jar"]
+WORKDIR /app
+RUN mvn install -Dmaven.test.skip=true
+RUN mv ./target/app.jar /
+RUN mvn clean
+WORKDIR /
+RUN mkdir /config
+VOLUME /var/log/romeole /var/log/romeole
+VOLUME /config
+EXPOSE 8580
+CMD ["java","-jar","-Duser.timezone=GMT+08","app.jar","--server.port=8580","--spring.profiles.active=dev"]
