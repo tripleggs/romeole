@@ -10,4 +10,4 @@ RUN mkdir /config
 VOLUME /var/log/romeole /var/log/romeole
 VOLUME /config
 EXPOSE 8580
-CMD ["java","-jar","-Duser.timezone=GMT+08","app.jar","--server.port=8083","--spring.profiles.active=dev"]
+CMD ["java","-jar","-Duser.timezone=GMT+08","app.jar","--server.port=8580","--spring.profiles.active=dev"]
